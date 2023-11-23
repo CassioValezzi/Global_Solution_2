@@ -42,7 +42,7 @@ function Header() {
             <Menu className="container-fluid p-0">
                 <nav className="navbar bg-body-tertiary">
                     <div className="container-fluid">
-                        <span class="navbar-brand mb-0 ">MedBase</span>
+                        <span className="navbar-brand mb-0 ">MedBase</span>
                         <Logoutbtn className='px-3 ' type="button" onClick={ClearSession}>SAIR</Logoutbtn>
                     </div>
                 </nav>
