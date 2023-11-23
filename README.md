@@ -29,7 +29,12 @@ para a tela de Login e seus dados limpos de todos as áreas(sessionStorage).
 
 
 # Como acessar:
-Ao acessar o link: https://global-solution-2-eight.vercel.app/login, você será redirecionado para a página de login. Para acessar a pagina de conteúdo digite no campo "Usuário" "fulano@email.com" e no campo "Senha" digite "2023ESR1!"
+Ao acessar o link: 
+`https://global-solution-2-eight.vercel.app/login`
+Você será redirecionado para a página de login. 
+Para acessar a pagina de conteúdo digite no campos: 
+`"Usuário" :  "fulano@email.com"` 
+`"Senha" :  "2023ESR1!"`
 
 # Repositorio
 https://github.com/CassioValezzi/Global_Solution_2
