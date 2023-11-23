@@ -152,8 +152,8 @@ const Vantagens = Styled.div`
 `
 
 function Home() {
-
-    axios.get('http://localhost:5000/accounts')
+    
+    axios.get('https://my-db-lake.vercel.app/accounts')
         .then(result => {
             result.data.map(user => {
                 const textuser = document.querySelector('#name-email')

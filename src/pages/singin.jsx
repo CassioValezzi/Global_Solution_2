@@ -56,7 +56,7 @@ function Login() {
 
 
 
-        axios.get('http://localhost:5000/accounts')
+        axios.get('https://my-db-lake.vercel.app/accounts')
             .then(result => {
                 result.data.map(user => {
                     if (user.email === formData.email && user.senha === formData.senha) {
