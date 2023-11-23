@@ -176,7 +176,7 @@ function Home() {
                             <p className="p-3 col-12 col-xl-8">O projeto MedBase, tem como objetivo proporcionar uma solução eficiente para o armazenamento e gerenciamento dos dados de pacientes, os unificando dentro de nossa plataforma.</p>
                         </div>
                     </Introducao>
-                    <Solucao className=" col-12 col-lg-6 col-xl-4 d-flex flex-column  justify-content-between">
+                    <Solucao className=" col-12 col-lg-6 col-xl-4 d-flex flex-column  justify-content-around">
                         <Oqsolucao className=" p-1 m-3">
                             <h2>
                                 O que é a solução

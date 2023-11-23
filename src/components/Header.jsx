@@ -40,15 +40,12 @@ function Header() {
     return (
         <>
             <Menu className="container-fluid p-0">
-                <nav class="navbar bg-body-tertiary">
-                    <div class="container-fluid">
-                        <span class="navbar-brand mb-0 h1">MedBase</span>
+                <nav className="navbar bg-body-tertiary">
+                    <div className="container-fluid">
+                        <span class="navbar-brand mb-0 ">MedBase</span>
                         <Logoutbtn className='px-3 ' type="button" onClick={ClearSession}>SAIR</Logoutbtn>
                     </div>
                 </nav>
-                
-                    
-                    
                 
             </Menu>
 
