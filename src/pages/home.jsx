@@ -207,7 +207,7 @@ function Home() {
             </main>
 
 
-            <Vantagens className=" container-fluid" id="benefits">
+            <Vantagens className="container-fluid px-5" id="benefits">
                 <h2 className="fw-bold">Vantagens</h2>
                 <div className="galeria">
                     <div className="area1 row">
