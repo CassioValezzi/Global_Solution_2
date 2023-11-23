@@ -37,12 +37,12 @@ const BtnMais = Styled.button`
 const Solucao = Styled.div`
     border: 2px solid #e983b2;
     h2 {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
         font-weight: 600;
     }
     
     p {
-        font-size: 1rem;
+        font-size: 1.3rem;
     }
 `;
 
