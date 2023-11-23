@@ -152,7 +152,7 @@ const Vantagens = Styled.div`
 `
 
 function Home() {
-    
+
     axios.get('https://my-db-lake.vercel.app/accounts')
         .then(result => {
             result.data.map(user => {
@@ -208,6 +208,7 @@ function Home() {
 
 
             <Vantagens className=" container-fluid" id="benefits">
+                <h2>Vantagens</h2>
                 <div className="galeria">
                     <div className="area1 row">
                         <div className="col-6">
@@ -253,7 +254,7 @@ function Home() {
                         <div className="col-6">
                             <h2>04</h2>
                             <h3>Registro Simples</h3>
-                            <p>Permite adicionar um novo paciente ao sistema, fornecendo informações como nome, idade, endereço, tipo sanguíneo, CPF, entre outros. 
+                            <p>Permite adicionar um novo paciente ao sistema, fornecendo informações como nome, idade, endereço, tipo sanguíneo, CPF, entre outros.
                             </p>
                         </div>
 
