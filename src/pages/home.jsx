@@ -1,10 +1,12 @@
 import React from 'react';
 import Header from '../components/Header';
 import Styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+
+import axios from "axios";
 
 // img
-import Phone from '../assets/img/phone.svg'
+import Star from '../assets/img/star-fill.svg'
+import Basedata from '../assets/img/pexels-manuel-geissinger-325229.jpg'
 
 const Introducao = Styled.div`
     h1{
@@ -34,13 +36,13 @@ const BtnMais = Styled.button`
 
 const Solucao = Styled.div`
     border: 2px solid #e983b2;
-    h3 {
-        font-size: 2rem;
+    h2 {
+        font-size: 1.5rem;
         font-weight: 600;
     }
     
     p {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 `;
 
@@ -55,17 +57,23 @@ const Comofunciona = Styled.div`
     
 `;
 
+const EmailNome = Styled.p`
+    font-size: 1.3rem;
+    font-weight: 800;
+`
+
 const Vantagens = Styled.div`
     .galeria {
             margin: auto;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: minmax(100px);
-            grid-template-areas:
-                "area1 area2 area3 area4"
-                "area1 area2 area3 area4"
-                "area1 area2 area3 area4"
-            ;
+            grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: minmax(100px);
+                grid-template-areas:
+                    "area1 area2"
+                    "area1 area2"
+                    "area3 area4"
+                    "area3 area4"
+                ;
 
             .area1 {
                 grid-area: area1;
@@ -144,34 +152,29 @@ const Vantagens = Styled.div`
 `
 
 function Home() {
-    const navigate = useNavigate()
 
-    function ClearSession() {
-        sessionStorage.clear();
-        console.log(sessionStorage)
-        navigate('/login')
-    }
+    axios.get('http://localhost:5000/accounts')
+        .then(result => {
+            result.data.map(user => {
+                const textuser = document.querySelector('#name-email')
+                textuser.innerHTML = "Seja bem vindo " + user.nome + "!" + " Seu email é: " + user.email
+            })
+        })
 
     return (
         <>
-            <Header> </Header>
+            <Header></Header>
             <main className="container-fluid py-4">
                 <section className="row">
+                    <EmailNome id="name-email" ></EmailNome>
                     <Introducao className=" col-12 col-lg-6 col-xl-8 d-flex flex-column">
                         <figure className="p-3">
-                            <img className="img-fluid" src={Phone} alt="" />
+                            <img className="img-fluid" src={Basedata} alt="" />
                         </figure>
                         <div className="row">
-                            <h1 className="p-3 text-center col-12 col-xl-4">Plataforma de prontuários</h1>
-                            <p className="p-3 col-12 col-xl-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-                                tenetur ex
-                                ipsum illo quibusdam
-                                deserunt eum vero dolores, maiores cupiditate cumque voluptatibus consectetur, nostrum
-                                temporibus, quos quasi qui optio quae.</p>
+                            <h1 className="p-3 text-center col-12 col-xl-4">MedBase</h1>
+                            <p className="p-3 col-12 col-xl-8">O projeto MedBase, tem como objetivo proporcionar uma solução eficiente para o armazenamento e gerenciamento dos dados de pacientes, os unificando dentro de nossa plataforma.</p>
                         </div>
-                        <BtnMais className=" btn mb-4 mb-lg-0 align-self-end">
-                            <a href="">Mais Informações</a>
-                        </BtnMais>
                     </Introducao>
                     <Solucao className=" col-12 col-lg-6 col-xl-4 d-flex flex-column  justify-content-between">
                         <Oqsolucao className=" p-1 m-3">
@@ -179,8 +182,7 @@ function Home() {
                                 O que é a solução
                             </h2>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi tempore provident, consectetur nam
-                                quidem exercitationem ducimus aliquam ratione corporis deleniti?
+                                Uma plataforma de dados do medicos do paciente para uso de proficionais da saúde ou para uso do proprio paciente.
                             </p>
                         </Oqsolucao>
                         <Oqfaz className=" p-1 m-3">
@@ -188,8 +190,7 @@ function Home() {
                                 O que ela fará
                             </h2>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi tempore provident, consectetur nam
-                                quidem exercitationem ducimus aliquam ratione corporis deleniti?
+                                Centralizará os dados dos pacientes e possbilitará o gerenciamento deles pelos profissonais da saúde responsaveis, permitindo o registro, edição, adição e remoção de informações, além de facilitar a visualização dos históricos médicos dos pacientes.
                             </p>
                         </Oqfaz>
                         <Comofunciona className=" p-1 m-3">
@@ -197,8 +198,8 @@ function Home() {
                                 Como funcionará
                             </h2>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi tempore provident, consectetur nam
-                                quidem exercitationem ducimus aliquam ratione corporis deleniti?
+                                Através do uso de um banco de dados em formato JSON. O intuito é oferecer um banco centralizado de prontuários, históricos médicos e exames do paciente. Deste modo, o paciente não é limitado por sua rede e, em casos de mudanças ou até mesmo de uma emergência infortúnia, será muito mais fácil encontrar informações vitalmente importantes através apenas do CPF do paciente.
+
                             </p>
                         </Comofunciona>
                     </Solucao>
@@ -210,55 +211,56 @@ function Home() {
                 <div className="galeria">
                     <div className="area1 row">
                         <div className="col-6">
-                            <img className="img-fluid" src={Phone} alt="" />
+                            <img className="img-fluid" src={Star} alt="" />
                         </div>
 
                         <div className="col-6">
                             <h2>01</h2>
-                            <h3>Lorem.</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, impedit?</p>
+                            <h3>Facil Utilização</h3>
+                            <p>É apenas necessario o CPF de seu paciente para ter acesso aos dados disponiveis.</p>
                         </div>
 
                     </div>
                     <div className="area2 row">
                         <div className="col-6">
-                            <img className="img-fluid" src={Phone} alt="" />
+                            <img className="img-fluid" src={Star} alt="" />
                         </div>
 
                         <div className="col-6">
                             <h2>02</h2>
-                            <h3>Lorem.</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, impedit?</p>
+                            <h3>Informação Recentes</h3>
+                            <p>As informação dos clientes não ficaram desatualizadas, através do MedBase dados serão atualizados pelos médicos de maneira simples, podendo remover, adicionar ou modificar.</p>
                         </div>
 
                     </div>
                     <div className="area3 row">
                         <div className="col-6">
-                            <img className="img-fluid" src={Phone} alt="" />
+                            <img className="img-fluid" src={Star} alt="" />
                         </div>
 
                         <div className="col-6">
                             <h2>03</h2>
-                            <h3>Lorem.</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, impedit?</p>
+                            <h3>Fácil Visualização</h3>
+                            <p>Exibe uma lista com informações resumidas de todos os pacientes registrados no sistema.</p>
                         </div>
 
                     </div>
                     <div className="area4 row">
                         <div className="col-6">
-                            <img className="img-fluid" src={Phone} alt="" />
+                            <img className="img-fluid" src={Star} alt="" />
                         </div>
 
                         <div className="col-6">
                             <h2>04</h2>
-                            <h3>Lorem.</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, impedit?</p>
+                            <h3>Registro Simples</h3>
+                            <p>Permite adicionar um novo paciente ao sistema, fornecendo informações como nome, idade, endereço, tipo sanguíneo, CPF, entre outros. 
+                            </p>
                         </div>
 
                     </div>
                 </div>
             </Vantagens>
-            
+
         </>
 
 

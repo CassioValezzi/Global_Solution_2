@@ -47,37 +47,41 @@ function Login() {
 
         if (formData.email === "" || formData.email === null) {
             isvalid = false
-            validationErrors.email = "Digite Email "
+
         }
         if (formData.senha === "" || formData.senha === null) {
             isvalid = false
-            validationErrors.email = "Digite senha "
+
         }
 
 
 
         axios.get('http://localhost:5000/accounts')
-        .then(result => {
-            result.data.map(user => {
-                if (user.email === formData.email) {
-
-                    if (user.senha === formData.senha) {
-                        alert("login sucesso")
+            .then(result => {
+                result.data.map(user => {
+                    if (user.email === formData.email && user.senha === formData.senha) {
+                        alert("Login realizado")
                         sessionStorage.setItem('logado', true);
                         navigate('/')
+
                     }
-                    else {
-                        isvalid = false
-                        validationErrors.senha = "senha errada"
-                        sessionStorage.clear()
+                    else if (user.email !== formData.email && user.senha !== formData.senha) {
+                        alert("senha e email errados")
+                        
+
                     }
-                }
-                else if (formData.email !== "") {
-                    isvalid = false
-                    validationErrors.email = "email errado"
-                }
+                    else if (user.email !== formData.email) {
+                        alert("email errado")
+                        
+
+                    }
+                    else if (user.senha !== formData.senha) {
+                        alert("senha errada")
+                        
+
+                    }
+                })
             })
-        })
     }
 
     return (
