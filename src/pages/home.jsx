@@ -208,7 +208,7 @@ function Home() {
 
 
             <Vantagens className=" container-fluid" id="benefits">
-                <h2>Vantagens</h2>
+                <h2 className="fw-bold">Vantagens</h2>
                 <div className="galeria">
                     <div className="area1 row">
                         <div className="col-6">
