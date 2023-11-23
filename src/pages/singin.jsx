@@ -60,7 +60,7 @@ function Login() {
             .then(result => {
                 result.data.map(user => {
                     if (user.email === formData.email && user.senha === formData.senha) {
-                        alert("Login realizado")
+                        console.log("Login realizado")
                         sessionStorage.setItem('logado', true);
                         navigate('/')
 
