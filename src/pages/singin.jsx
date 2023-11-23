@@ -36,8 +36,6 @@ function Login() {
         "senha": ""
     })
 
-    const [errors, setErrors] = useState({})
-    const [valid, setValid] = useState(true)
     const navigate = useNavigate()
 
     function sendLogin(e) {
@@ -55,10 +53,7 @@ function Login() {
             isvalid = false
             validationErrors.email = "Digite senha "
         }
-        else if (formData.senha.length > 6) {
-            isvalid = false
-            validationErrors.email = "Senha menor que 6 caracteres "
-        }
+
 
 
         axios.get('http://localhost:5000/accounts')

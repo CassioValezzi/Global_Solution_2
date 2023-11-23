@@ -154,7 +154,7 @@ function Home() {
 
     return (
         <>
-            <Header></Header>
+            <Header> </Header>
             <main className="container-fluid py-4">
                 <section className="row">
                     <Introducao className=" col-12 col-lg-6 col-xl-8 d-flex flex-column">
@@ -258,7 +258,7 @@ function Home() {
                     </div>
                 </div>
             </Vantagens>
-            <button type="button" onClick={ClearSession}>Logout</button>
+            
         </>
 
 
