@@ -30,9 +30,12 @@ para a tela de Login e seus dados limpos de todos as áreas(sessionStorage).
 
 # Como acessar:
 Ao acessar o link: 
+
 `https://global-solution-2-eight.vercel.app/login`
+
+
 Você será redirecionado para a página de login. 
-Para acessar a pagina de conteúdo digite no campos: 
+Para acessar a pagina de conteúdo digite nos campos: 
 
 `"Usuário" :  "fulano@email.com"` 
 
