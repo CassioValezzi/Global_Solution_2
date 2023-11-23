@@ -63,22 +63,15 @@ function Login() {
                         console.log("Login realizado")
                         sessionStorage.setItem('logado', true);
                         navigate('/')
-
                     }
                     else if (user.email !== formData.email && user.senha !== formData.senha) {
                         alert("senha e email errados")
-                        
-
                     }
                     else if (user.email !== formData.email) {
                         alert("email errado")
-                        
-
                     }
                     else if (user.senha !== formData.senha) {
                         alert("senha errada")
-                        
-
                     }
                 })
             })
