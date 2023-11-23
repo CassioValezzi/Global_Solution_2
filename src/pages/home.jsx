@@ -166,7 +166,11 @@ function Home() {
             <Header></Header>
             <main className="container-fluid py-4">
                 <section className="row">
+                    <div className='d-flex'>
                     <EmailNome id="name-email" ></EmailNome>
+                    <p className="ms-auto">Global Solution 2023 - Engenharia de Software</p>
+                    </div>
+                    
                     <Introducao className=" col-12 col-lg-6 col-xl-8 d-flex flex-column">
                         <figure className="p-3">
                             <img className="img-fluid" src={Basedata} alt="" />
